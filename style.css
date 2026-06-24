@@ -1,0 +1,385 @@
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+}
+
+/* =========================
+   HOME PAGE
+========================= */
+
+.home-page{
+    min-height:100vh;
+    background:linear-gradient(
+        135deg,
+        #6366f1,
+        #8b5cf6
+    );
+}
+
+.home-container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.home-card{
+    width:450px;
+    background:white;
+    padding:45px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,0.25);
+}
+
+.logo{
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+.home-card h1{
+    color:#1f2937;
+    margin-bottom:15px;
+}
+
+.home-card p{
+    color:#6b7280;
+    line-height:1.6;
+}
+
+.btn-group{
+    margin-top:30px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    margin:8px;
+    text-decoration:none;
+    color:white;
+    background:#6366f1;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#4f46e5;
+}
+
+.register{
+    background:#22c55e;
+}
+
+.register:hover{
+    background:#16a34a;
+}
+
+.logout{
+    background:#ef4444;
+}
+
+.logout:hover{
+    background:#dc2626;
+}
+
+/* =========================
+   LOGIN & REGISTER PAGE
+========================= */
+
+.auth-page{
+    margin:0;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.45)
+    ),
+    url('../images/login.jpg');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    min-height:100vh;
+}
+
+.overlay{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.login-box{
+    width:400px;
+    background:rgba(255,255,255,0.95);
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,0.3);
+}
+
+.login-box h1{
+    color:#1f2937;
+    margin-bottom:10px;
+}
+
+.login-box p{
+    color:#6b7280;
+    margin-bottom:20px;
+}
+
+.login-box input{
+    width:100%;
+    padding:13px;
+    margin-bottom:15px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    font-size:15px;
+}
+
+.login-box input:focus{
+    outline:none;
+    border-color:#6366f1;
+}
+
+.login-box button{
+    width:100%;
+    padding:13px;
+    background:#6366f1;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.login-box button:hover{
+    background:#4f46e5;
+}
+
+.error{
+    color:#dc2626;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.message{
+    color:#16a34a;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.link{
+    margin-top:15px;
+    font-size:14px;
+}
+
+.link a{
+    color:#6366f1;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.link a:hover{
+    text-decoration:underline;
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard-page{
+    background:#f3f4f6;
+    min-height:100vh;
+    display:flex;
+}
+
+/* Sidebar */
+
+.sidebar{
+    width:250px;
+    background:#111827;
+    color:white;
+    padding:30px 20px;
+}
+
+.sidebar h2{
+    margin-bottom:40px;
+    font-size:24px;
+    
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:14px 15px;
+    margin-bottom:12px;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.sidebar a:hover{
+    background:#374151;
+}
+
+.sidebar .active{
+    background:#4f46e5;
+}
+
+.logout-link{
+    background:#ef4444;
+    margin-top:30px;
+}
+
+.logout-link:hover{
+    background:#dc2626 !important;
+}
+
+/* Main Content */
+
+.main-content{
+    flex:1;
+    padding:35px;
+}
+
+/* Top Bar */
+
+.topbar{
+    background:white;
+    padding:22px 28px;
+    border-radius:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.topbar h1{
+    color:#1f2937;
+    margin-bottom:5px;
+}
+
+.topbar p{
+    color:#6b7280;
+}
+
+.user-badge{
+    background:#eef2ff;
+    color:#4f46e5;
+    padding:12px 18px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+/* Welcome Banner */
+
+.welcome-card{
+    margin-top:30px;
+    padding:40px;
+    border-radius:20px;
+
+    background:linear-gradient(
+        135deg,
+        #6366f1,
+        #8b5cf6
+    );
+
+    color:white;
+
+    box-shadow:0 12px 30px rgba(99,102,241,0.35);
+}
+
+.welcome-card h2{
+    margin-bottom:10px;
+    font-size:30px;
+}
+
+.welcome-card p{
+    line-height:1.6;
+}
+
+/* Cards */
+
+.card-container{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    margin-top:30px;
+}
+
+.info-card{
+    background:white;
+    padding:28px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.info-card:hover{
+    transform:translateY(-6px);
+}
+
+.info-card h3{
+    color:#4f46e5;
+    margin-bottom:12px;
+}
+
+.info-card p{
+    color:#6b7280;
+    line-height:1.5;
+}
+
+.online{
+    color:#22c55e;
+    font-weight:bold;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .dashboard-page{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+    }
+
+    .card-container{
+        grid-template-columns:1fr;
+    }
+
+    .topbar{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .home-card,
+    .login-box{
+        width:100%;
+        max-width:450px;
+    }
+}
+
