@@ -32,8 +32,11 @@ if (isset($_POST['login'])) {
 <head>
     <title>Login | Student To-Do List</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/theme.js"></script>
 </head>
 <body class="auth-page">
+
+<button class="theme-toggle theme-toggle--fixed" onclick="toggleTheme()" title="Toggle dark mode">🌙</button>
 
 <div class="overlay">
     <div class="login-box">
