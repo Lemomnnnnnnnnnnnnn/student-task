@@ -75,137 +75,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 $username    = $_SESSION['username'] ?? 'User';
 $currentDate = date("l, d F Y");
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Task | Student To-Do List</title>
-    <meta name="description" content="Update details of your existing task.">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/theme.js"></script>
-    <style>
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            margin-bottom: 18px;
-        }
-        .form-group label {
-            font-size: 0.75em;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--muted);
-        }
-        .form-control {
-            padding: 10px 14px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-size: 0.9em;
-            background: var(--surface);
-            color: var(--text);
-            outline: none;
-            transition: border-color 0.15s, box-shadow 0.15s;
-            width: 100%;
-            font-family: inherit;
-        }
-        .form-control:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(94, 129, 244, 0.15);
-        }
-        textarea.form-control {
-            resize: vertical;
-            min-height: 100px;
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 18px;
-        }
-        .form-actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 24px;
-        }
-        .alert {
-            padding: 12px 16px;
-            border-radius: 8px;
-            font-size: 0.9em;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        .alert-error {
-            background: #fff0f0;
-            color: var(--danger);
-            border: 1px solid #ffe0e0;
-        }
-        .alert-success {
-            background: #eefdf4;
-            color: var(--success);
-            border: 1px solid #dcfbe7;
-        }
-        html.dark .alert-error {
-            background: #3a1f1f;
-            color: #ff9b9b;
-            border-color: #5a2f2f;
-        }
-        html.dark .alert-success {
-            background: #1e3527;
-            color: #8be8aa;
-            border-color: #274d35;
-        }
-        @media (max-width: 500px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-<div class="layout">
-
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar">
-        <div class="sidebar-logo">
-            <span class="logo-icon">📚</span>
-            <span class="logo-text">To-Do List</span>
-        </div>
-        <nav class="sidebar-nav">
-            <a href="dashboard.php" class="nav-link">
-                <span class="nav-icon">🏠</span> Dashboard
-            </a>
-            <a href="view_task.php" class="nav-link">
-                <span class="nav-icon">📋</span> My Tasks
-            </a>
-            <a href="create_task.php" class="nav-link">
-                <span class="nav-icon">➕</span> Create Task
-            </a>
-            <a href="search_task.php" class="nav-link">
-                <span class="nav-icon">🔍</span> Search Tasks
-            </a>
-            <a href="filter_task.php" class="nav-link">
-                <span class="nav-icon">⚙️</span> Filter Tasks
-            </a>
-        </nav>
-        <a href="logout.php" class="sidebar-logout">🚪 Logout</a>
-    </aside>
-
-    <!-- Main Content -->
-    <div class="main-content">
-
-        <!-- Topbar -->
-        <header class="topbar">
-            <div>
-                <h1 class="page-title">Update Task</h1>
-                <p class="page-date"><?= $currentDate ?></p>
-            </div>
-            <div class="topbar-right">
-                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">🌙</button>
-                <div class="user-badge">👋 Hello, <strong><?= htmlspecialchars($username) ?></strong></div>
-            </div>
-        </header>
+<?php
+$page_title = "Update Task";
+$page_active = "view_tasks";
+include "includes/header.php";
+?>
 
         <!-- Form Card -->
         <div class="dash-panel" style="max-width: 650px; margin: 0 auto;">
@@ -304,19 +178,19 @@ $currentDate = date("l, d F Y");
             </div>
         </div>
 
-    </div>
-</div>
-
+<?php
+$extra_scripts = '
 <script>
     // Auto-dismiss alert after 4 seconds
-    const successAlert = document.getElementById('alert-success');
+    const successAlert = document.getElementById(\'alert-success\');
     if (successAlert) {
         setTimeout(() => {
-            successAlert.style.transition = 'opacity 0.5s';
-            successAlert.style.opacity   = '0';
+            successAlert.style.transition = \'opacity 0.5s\';
+            successAlert.style.opacity   = \'0\';
             setTimeout(() => successAlert.remove(), 500);
         }, 4000);
     }
 </script>
-</body>
-</html>
+';
+include "includes/footer.php";
+?>

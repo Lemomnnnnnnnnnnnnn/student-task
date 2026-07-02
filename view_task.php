@@ -118,112 +118,11 @@ function isOverdue(?string $due, string $status): bool {
     return strtotime($due) < strtotime(date('Y-m-d'));
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Tasks | Student To-Do List</title>
-    <meta name="description" content="View, search and filter all your tasks in one premium dashboard interface.">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/theme.js"></script>
-    <style>
-        .action-btns {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-        .btn-edit {
-            background: #e8edff;
-            color: var(--accent);
-            padding: 5px 10px;
-            border-radius: 6px;
-            font-size: 0.8em;
-            font-weight: 600;
-            transition: opacity 0.15s;
-        }
-        .btn-delete {
-            background: #fff0f0;
-            color: var(--danger);
-            padding: 5px 10px;
-            border-radius: 6px;
-            font-size: 0.8em;
-            font-weight: 600;
-            transition: opacity 0.15s;
-        }
-        html.dark .btn-edit {
-            background: #232b4a;
-            color: #b9c6ff;
-        }
-        html.dark .btn-delete {
-            background: #3a1f1f;
-            color: #ff9b9b;
-        }
-        .btn-edit:hover, .btn-delete:hover {
-            opacity: 0.8;
-        }
-        .alert {
-            padding: 12px 16px;
-            border-radius: 8px;
-            font-size: 0.9em;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        .alert-info {
-            background: #e8edff;
-            color: var(--accent);
-            border: 1px solid #c3d0f7;
-        }
-        html.dark .alert-info {
-            background: #232b4a;
-            color: #b9c6ff;
-            border-color: #34406b;
-        }
-    </style>
-</head>
-<body>
-<div class="layout">
-
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar">
-        <div class="sidebar-logo">
-            <span class="logo-icon">📚</span>
-            <span class="logo-text">To-Do List</span>
-        </div>
-        <nav class="sidebar-nav">
-            <a href="dashboard.php" class="nav-link">
-                <span class="nav-icon">🏠</span> Dashboard
-            </a>
-            <a href="view_task.php" class="nav-link active">
-                <span class="nav-icon">📋</span> My Tasks
-            </a>
-            <a href="create_task.php" class="nav-link">
-                <span class="nav-icon">➕</span> Create Task
-            </a>
-            <a href="search_task.php" class="nav-link">
-                <span class="nav-icon">🔍</span> Search Tasks
-            </a>
-            <a href="filter_task.php" class="nav-link">
-                <span class="nav-icon">⚙️</span> Filter Tasks
-            </a>
-        </nav>
-        <a href="logout.php" class="sidebar-logout">🚪 Logout</a>
-    </aside>
-
-    <!-- Main Content -->
-    <div class="main-content">
-
-        <!-- Topbar -->
-        <header class="topbar">
-            <div>
-                <h1 class="page-title">My Tasks</h1>
-                <p class="page-date"><?= $currentDate ?></p>
-            </div>
-            <div class="topbar-right">
-                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">🌙</button>
-                <div class="user-badge">👋 Hello, <strong><?= htmlspecialchars($username) ?></strong></div>
-            </div>
-        </header>
+<?php
+$page_title = "My Tasks";
+$page_active = "view_tasks";
+include "includes/header.php";
+?>
 
         <!-- Stats Card Grid -->
         <div class="stat-grid" style="margin-bottom: 24px;">
@@ -353,19 +252,19 @@ function isOverdue(?string $due, string $status): bool {
             </table>
         </div>
 
-    </div>
-</div>
-
+<?php
+$extra_scripts = '
 <script>
     // Auto-dismiss delete alert after 3 seconds
-    const delAlert = document.getElementById('delete-alert');
+    const delAlert = document.getElementById(\'delete-alert\');
     if (delAlert) {
         setTimeout(() => {
-            delAlert.style.transition = 'opacity 0.5s';
-            delAlert.style.opacity   = '0';
+            delAlert.style.transition = \'opacity 0.5s\';
+            delAlert.style.opacity   = \'0\';
             setTimeout(() => delAlert.remove(), 500);
         }, 3000);
     }
 </script>
-</body>
-</html>
+';
+include "includes/footer.php";
+?>

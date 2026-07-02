@@ -38,57 +38,11 @@ function highlight($text, $q) {
     return preg_replace("/($safe_q)/i", "<mark>$1</mark>", htmlspecialchars($text));
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Tasks | Student To-Do List</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/theme.js"></script>
-</head>
-<body>
-<div class="layout">
-
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar">
-        <div class="sidebar-logo">
-            <span class="logo-icon">📚</span>
-            <span class="logo-text">To-Do List</span>
-        </div>
-        <nav class="sidebar-nav">
-            <a href="dashboard.php" class="nav-link">
-                <span class="nav-icon">🏠</span> Dashboard
-            </a>
-            <a href="view_task.php" class="nav-link">
-                <span class="nav-icon">📋</span> My Tasks
-            </a>
-            <a href="create_task.php" class="nav-link">
-                <span class="nav-icon">➕</span> Create Task
-            </a>
-            <a href="search_task.php" class="nav-link active">
-                <span class="nav-icon">🔍</span> Search Tasks
-            </a>
-            <a href="filter_task.php" class="nav-link">
-                <span class="nav-icon">⚙️</span> Filter Tasks
-            </a>
-        </nav>
-        <a href="logout.php" class="sidebar-logout">🚪 Logout</a>
-    </aside>
-
-    <div class="main-content">
-
-        <!-- Topbar -->
-        <header class="topbar">
-            <div>
-                <h1 class="page-title">Search Tasks</h1>
-                <p class="page-date"><?= date("l, d F Y") ?></p>
-            </div>
-            <div class="topbar-right">
-                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">🌙</button>
-                <div class="user-badge">👋 <strong><?= htmlspecialchars($username) ?></strong></div>
-            </div>
-        </header>
+<?php
+$page_title = "Search Tasks";
+$page_active = "search_tasks";
+include "includes/header.php";
+?>
 
         <!-- Search Form -->
         <form method="GET" action="search_task.php" class="search-form">
@@ -180,7 +134,6 @@ function highlight($text, $q) {
             </div>
         <?php endif; ?>
 
-    </div>
-</div>
-</body>
-</html>
+<?php
+include "includes/footer.php";
+?>
